@@ -1,0 +1,27 @@
+version: "3.3"
+
+services:
+
+  kabuthon:
+    container_name: kabuthon
+    build: ./kabuthon
+    volumes:
+      - ./kabuthon/data:/var/kabuthon
+    networks:
+      - network1
+
+  rundeck:
+    container_name: kabuthon_rundeck
+    build: ./rundeck
+    volumes:
+      - ./rundeck/data/.ssh:/home/rundeck/.ssh
+      - ./rundeck/data/projects:/home/rundeck/projects
+      - ./rundeck/data/server/data:/home/rundeck/server/data
+    ports:
+      - 4440:4440
+    networks:
+      - network1
+
+networks:
+  network1:
+    external: true

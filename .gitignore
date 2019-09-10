@@ -1,0 +1,13 @@
+
+id_rsa
+id_rsa.pub
+
+kabuthon/.env
+kabuthon/brand_list.txt
+kabuthon/data/
+
+rundeck/data/server/data/
+
+rundeck/data/.ssh/*
+
+!.gitkeep

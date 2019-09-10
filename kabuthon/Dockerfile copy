@@ -1,0 +1,24 @@
+FROM alpine:3.7
+
+RUN apk --update-cache add gcc libc-dev linux-headers 
+RUN apk add supervisor
+RUN apk add openssh
+RUN apk add git
+RUN apk add python3-dev
+
+RUN mkdir /root/.ssh/
+COPY id_rsa /root/.ssh/
+COPY id_rsa.pub /root/.ssh/
+RUN chmod 700 /root/.ssh/id_rsa
+RUN ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
+RUN git clone git@github.com:teruuuuuu/kabuthon.git
+RUN mkdir /opt/
+RUN mv kabuthon /opt/
+RUN cd /opt/kabuthon
+RUN pip3 install --upgrade pip
+RUN pip3 install -r /opt/kabuthon/requirements.txt
+
+COPY supervisord.conf /etc/supervisord.conf
+
+CMD ["/usr/bin/supervisord"]

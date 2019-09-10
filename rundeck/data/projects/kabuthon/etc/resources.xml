@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <node name="kabuthon_rundeck" description="Rundeck server node" tags="" hostname="kabuthon_rundeck" osArch="amd64" osFamily="unix" osName="Linux" osVersion="" username="rundeck"/>
+  <node name="kabuthon" description="job execution server" tags="" hostname="kabuthon" osArch="amd64" osFamily="unix" osName="Linux" osVersion="" username="rundeck"/>
+</project>
